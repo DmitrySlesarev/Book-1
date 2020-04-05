@@ -1,2 +1,2 @@
 # Book-1
-Here are the bunch of completed exercises from a book by Zed A. Shaw;
+Here is the bunch of completed exercises from the book 'Learn Python The Hard Way' by Zed A. Shaw;
