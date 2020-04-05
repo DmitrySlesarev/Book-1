@@ -1,4 +1,78 @@
 #-*-coding: utf-8-*-
+# Excercise 36
+
+from sys import exit
+
+def gold_room():
+	print ("A lot of gold. How much would you take?")
+
+	next = input("> ")
+
+	if 	next.isdigit():
+		if int(next) < 50:
+			print ("Awesome! You're not greedy, you won!")
+			exit(0)
+		else:
+			print ("You're sneaky!")	
+	else:
+		print ("You should input a digit.")
+
+def bear_room():
+	print ('''Here is a bear.
+	It has a pot with honey.
+	It closes the exit. How to move?''')
+	bear_moved = False
+
+	while True:
+		next = input("> ")
+
+		if "take honey" in next:
+			dead("First choice")
+		elif "yell at it" in next and not bear_moved:
+			print ("Try more")
+			bear_moved = True
+		elif "move it" in next and bear_moved:
+			dead("Bear kills u")
+		elif "open the door" in next and bear_moved:
+			gold_room()
+		else:
+			print ("Don't have a clue")
+
+def cthulhu_room():
+	print ('''Ctulhu is lookgin' at you.
+		Run away or just stay?''')
+
+	next = input("> ")
+
+	if "run" in next:
+		start()
+	elif "stay" in next:
+		dead("Not a choice!")
+	else:
+		cthulhu_room()
+
+def dead(why):
+	print (why, "Excellent!")
+	exit(0)
+
+def start():
+	print ('''You're in the dark room.
+		There are two doors.
+		Which do you choose?''')
+
+	next = input("> ")
+
+	if next == "left":
+		bear_room()
+	elif next == "right":
+		cthulhu_room()
+	else:
+		dead("You have to choose, man. Or it's gonna done by default...")
+
+start()		
+
+
+#-*-coding: utf-8-*-
 # Exercise 34
 
 import codecs, sys
