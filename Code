@@ -1,4 +1,74 @@
 #-*-coding: utf-8-*-
+# Exercise 33
+
+'''
+i = 0
+number = []
+
+while i < 6:
+    print (u"Вверху значение i равно %d" % i)
+    number.append(i)
+
+    i +=1
+    print (u"Текущие значения: ", number)
+    print (u"Внизу значение i равно %d" % i)
+
+print (u'Значения: ')
+
+for num in number:
+	print (num)
+
+# part II 
+
+def number(a, b):
+	i = 0
+	list_=[]
+	while i < a:
+		print (u"Вверху значение i равно %d" % i)
+		list_.append(i)
+
+		i+=b
+		print (u"Текущие значения: ", list_)
+		print (u"Внизу значение i равно %d" % i)
+
+	print (u"Значения: ")
+
+	for num in list_:
+		print (num)
+
+print (u"Введите число")
+a = input("> ")
+
+print (u"Введите шаг")
+b = input("> ")
+
+number (int(a), int(b))
+
+# part III
+
+'''
+def number(a, b):
+	list_=[]
+	for i in range (0, a, b):
+		print (u"Вверху значение i равно %d" % i)
+		list_.append(i)
+		print (u"Текущие значения: ", list_)
+		print (u"Внизу значение i равно %d" % i)
+
+	print (u"Значения: ")
+
+	for num in list_:
+		print (num)
+
+print (u"Введите число")
+a = input("> ")
+
+print (u"Введите шаг")
+b = input("> ")
+
+number (int(a), int(b))
+
+#-*-coding: utf-8-*-
 # Exercise 32
 
 the_count = [1, 2, 3, 4, 5,]
