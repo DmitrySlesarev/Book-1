@@ -1,2 +1,2 @@
 # Book-1
-Here are the bunch of completed exercises from a book;
+Here are the bunch of completed exercises from a book by Zed A. Shaw;
