@@ -1,4 +1,41 @@
+# Exercise 38
 #-*-coding: utf-8-*-
+
+# создаем строковую переменную
+ten_things = u'Apples Oranges Crows Telephone Light Sugar'
+
+print (u"Погодите, тут меньше 10 объектов. Давайте исправим это.")
+
+# разбиваем строковую переменную с помощью функции сплит на части с раздилителем ' ' (пробел)
+stuff = ten_things.split(' ')
+
+# создаем список литералом
+more_stuff = ['Day', 'Night', 'Song', 'Frisbee', 'Corn', 'Banana', 'Girl', 'Boy']
+
+# петля "пока не равно 10"
+while len(stuff) != 10:
+	# удаляем последнее значение из списка more_stuff присваем его переменной next_one
+	next_one = more_stuff.pop()
+	print (u'Добавляем: ', next_one)
+	# добавляем переменную в список, объявленный ранее 
+	stuff.append(next_one)
+	print (u"Теперь у нас %d объектов." % len(stuff))
+	
+print (u"Итак: ", stuff)
+
+print (u"Давайте кое-что сделаем с нашими объектами.")
+
+print (stuff[1])
+print (stuff[-1]) # хм! интересно
+print (stuff.pop())
+# снова из списка делаем строку
+print (' '.join(stuff)) # что? круто!
+
+#  с помощью функции join объединяем 3 и 4 кардинальные значения в списке stuff
+print ("#".join(stuff[3:8])) # просто супер!
+
+print (stuff)
+
 # Excercise 36
 
 from sys import exit
