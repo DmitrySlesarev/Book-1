@@ -1,3 +1,143 @@
+#-*-coding: utf-8-*-
+# Exercise 39 (I & II)
+#-*-coding: utf-8-*-
+
+# схема связей аббревиатур с названиями стран
+
+countries = {
+	u'Россия': 'RU',
+	u'Германия': 'DE',
+	u'Узбекистан': 'UZ',
+	u'Зимбабве': 'ZW',
+	u'Турция': 'TR'
+	}
+	
+# создание базового набора стран и некоторых городов в них
+cities = {
+	'UZ': u'Газли',
+	'TR': u'Сарыгерме',
+	'DE': u'Мюнхен'
+	}
+	
+# добавление некоторых городов
+cities['ZW'] = u'Гверу'
+cities['RU'] = u'Москва'
+
+# вывод некоторых городов
+print ('- ' * 10)
+print (u'В стране ZW есть город: ', cities['ZW'])
+print (u'В стране RU есть город: ', cities['RU'])
+
+# вывод некоторых стран
+print ('- ' * 10)
+print (u'Аббревиатура Турции: ', countries[u'Турция'])
+print (u'Аббревиатура Германии: ', countries[u'Германия'])
+
+# выполняется с учетом страны и словаря городов
+print ('- ' * 10)
+print (u'В Турции есть город: ', cities[countries[u'Турция']])
+print (u'В Германии есть город: ', cities[countries[u'Германия']])
+
+# вывод аббревиатур всех стран
+print ('- ' * 10)
+for country, abbrev in countries.items():
+	print (u'{} имеет аббревиатуру {}'.format(country, abbrev))
+	
+# вывод всех городов в странах
+print('- ' * 10)
+for abbrev, city in cities.items():
+	print (u'В стране %s есть город %s' % (abbrev, city))
+	
+# а теперь сразу оба типа данных
+print ("- " * 10)
+for country, abbrev in countries.items():
+	print (u'В стране %s используется аббревиатура %s и есть город %s' % (country, abbrev, cities[abbrev]))
+	
+print ("- " * 10)
+# безопасное получение аббревиатуры страны, которая не представлена
+country = countries.get(u'США', None)
+
+if not country:
+	print (u'Прошу прощения, США не обнаружено.')
+	
+# получение города со значением по умолчанию
+city = cities.get('US', u'не существует')
+print (u'В стране "US" есть город: %s' % city)
+
+US_states = {
+	'Alaska' : "Juneau",
+	"Alabama" : "Montgomery", 
+	"Arizona" : "Phoenix",
+	"Arkanzas" : "Little Rock",
+	"California" : "Sacramento",
+	"Colorado" : "Denver", 
+	"Connecticut" : "Hartford",
+	"Delawere" : "Dover",
+	"Florida" : "Tallahassee",
+	"Georgia" : "Atlanta",
+	"Hawaii" : "Honolulu",
+	"Idaho" : "Boise",
+	"Illinois" : "Springfield", 
+	"Indiana" : "Indianapolis",
+	"Iowa" : "Des Moines",
+	"Kansas" : "Topeka", 
+}
+
+US_resol = {
+	"AL": "Alabama",
+	"AK": "Alaska",
+	"AZ": "Arizona", 
+}
+
+US_abbrs = {
+	'Alabama' : 'AL',
+	'Alaska' : 'AK', 
+	'Arizona' : 'AZ',
+	'Arkanzas' : 'AR',
+	'California' : 'CA',
+	'Colorado' : 'CO',
+	'Connecticut' : 'CT'
+}
+
+US_abbrs['Delawere'] = 'DE'
+US_abbrs['Florida'] = 'FL'
+US_abbrs['Georgia'] = 'GA'
+
+print ("=" * 10+" "+"=" * 10)
+print (f"{US_abbrs['Alabama']} capital is {US_states['Alabama']}")
+print (f"{US_abbrs['Alaska']} capital is {US_states['Alaska']}")
+print (f"{US_abbrs['Arizona']} capital is {US_states['Arizona']}")
+
+print ("=" * 10+" "+"=" * 10 + "\n")
+print (f"Attempt to find out the capital by abbreviation. The 'AL' implies {US_states[US_resol['AL']]}")
+print (f"Attempt to find out the capital by abbreviation. The 'AK' implies {US_states[US_resol['AK']]}")
+print (f"Attempt to find out the capital by abbreviation. The 'AK' implies {US_states[US_resol['AZ']]}")
+
+print ("=" * 10+" "+"=" * 10 + "\n" )
+for state, capital in US_states.items():
+	print (f"{state} has capital named '{capital}'")
+	
+print ("\n" + "=" * 10+" "+"=" * 10 + "\n" )
+for state, abbr in US_abbrs.items():
+	print (f"{state} is shortened to '{abbr}'")
+	
+print ("\n" + "=" * 10+" "+"=" * 10 + "\n" )
+for state, abbr in US_resol.items():
+	print (f"Here again. The capital of {US_resol['AL']} is {US_states[US_resol['AL']]}")
+	print (f"Here again. The capital of {US_resol['AK']} is {US_states[US_resol['AK']]}")
+	print (f"Here again. The capital of {US_resol['AZ']} is {US_states[US_resol['AZ']]}")
+	
+print ("\n" + "- " * 10)
+var = US_abbrs.get('NY', None)
+
+if not var:
+	print ('Sorry! The variable doesn\'t exist.')
+	
+State = US_states.get('NY', 'not exist')
+print ('US has got the city: {}'.format(State))
+
+
+
 # Exercise 38
 #-*-coding: utf-8-*-
 
