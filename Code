@@ -1,3 +1,202 @@
+#-*-coding: UTF-8-*-
+# Exercise 43
+
+from sys import exit
+from random import randint
+
+class Scene:
+
+	def enter(self):
+		print ("Not set. Create subclass and initialize enter()")
+		exit(1)
+
+
+class Engine:
+	def __init__(self, scene_map):
+		self.scene_map = scene_map
+		
+	def play(self):
+		current_scene = self.scene_map.opening_scene()
+		
+		#while current_scene!= last_scene:
+		next_scene_name = current_scene.enter()
+		current_scene = self.scene_map.next_scene(next_scene_name)
+			
+		current_scene.enter()
+		
+
+class Death(Scene):
+	quips = [
+		"You're dead.",
+		"You're like puppy. Moreover, dead",
+		"GAMEOVER",
+		]
+		
+	def enter(self):
+		print (Death.quips[randint(0, len(self.quips) - 1)])
+		exit(1)
+
+
+		
+class Lawn(Scene):
+
+	def enter(self):
+		print ("Arthur Dent is trying to shave at home in the morning")
+		print ("Suddenly he sees the bulldozer in the mirror")
+		print ("He rans out and lies down into the mud")
+		print ("Mr Prosper asks: What are you doing?")
+		
+		print ("\n")
+		
+		print ("A. I'm just having a rest")
+		print ("B. I'm going to kill you!")
+		print ("C. That's my home, you are not going to destroy it!")
+		
+		action = input("> ")
+		
+		if action == "A" or "a" or "A." or "a.":
+			
+			print ("Mr Prosper thinks you're mad. He is calling police.")
+			print ("The Earth is going to be destroyed soon.")
+			print ("And you're along with it.")
+			return 'death'
+			
+		elif action == "B" or "b" or "B." or "b.":
+			print ("Mr Prosper decides to call police.")
+			print ("They come to arrest you.")
+			print ("The Earth is going to be destroyed soon.")
+			print ("And you're along with it.")
+			return 'death'
+			
+		elif action == "C" or "c" or "C." or "c.":
+			print ("Mr Prosper is surprized.")
+			print ("Didn't you see the notice two months ago?")
+			print ("Ford Prefect appears and takes Arthur Dent to the close bar")
+			return "bar"
+			
+		else:
+			print ("You cannot do that!")
+			return 'lawnbeforehouse'
+			
+class Bar(Scene):
+	
+	def enter(self):
+		print ("Ford Prefect orders two pints of beer.")
+		print ("""Barman wants to give a change, but Ford 
+		says that the end of Earth is going to come in two minutes.""")
+		print ("Arthur Dent wants to know how much time they've got.")
+		
+		time = "{}".format(randint(1, 13))
+		quess = input("[keypad]> ")
+		quesses = 0
+		
+		while guess != code and quesses < 10:
+			if quesses == 9:
+				print ("Just one more time!")
+			print ("Zzzzzz... Wrong!")
+			quesses+=1
+			quess = input("[keypad]> ")
+			
+		if quess == code:
+			print ("You're right.")
+			print ("You should go outside and hitchhike an UFO.")
+			return 'the_street'
+			
+		else:
+			print ("You're wrong.")
+			print ("While you've been trying to guess the time to live, the Earth is getting destroyed.")
+			print ("Congrats.")
+			return 'death'
+
+class TheStreet(Scene):
+	
+	def enter(self):
+		print ("Arthur Dent and Ford Prefect are chatting in the street.")
+		print ("Suddenly, Arther sees his hous gets destroyed by bulldozer.")
+		print ("He is going to stop it...")
+		
+		print ("\n")
+		
+		print ("Stop \ Allow")
+		
+		action = input("> ")
+		
+		if action == "Allow" or action == "allow":
+			print ("Arthur Dent goes and safes his house but the planet gets destroyed.")
+			return 'death'
+			
+		elif action == "Stop" or action == "stop":
+			print ("Ford Prefect makes him to stop.")
+			print ("He takes out a ... to hitchhike a UFO.")
+			print ("It works out!..")
+			return 'escape_pod'
+			
+		else:
+			print ("You CAN'T do it!")
+			return 'the_street'
+			
+class EscapePod(Scene):
+	
+	def enter(self):
+		print ("Ford Prefect and Arthur Dent on the ship of aliens.")
+		print ("But they're not welcome here...")
+		print ("There are three doors. Which do you choose?")
+		
+		good_door = randint(1,4)
+		quess = input("[door #]> ")
+		
+		if int(quess) != good_door:
+			print ("You've come in and see an alien soldier.")
+			print ("He takes you to the commander.")
+			print ("The commander wants you to get off.")
+			print ("The soldier opens the door to the space and kick you off")
+			
+			return 'death'
+			
+		else:
+			print ("You're hidden somewhere in the pantry.")
+			print ("You're safe so far")
+			
+			return 'finished'
+
+class Finished(Scene):
+
+	def enter(self):
+		print ("You're alive. Good!")
+		return 'finished'
+	
+			
+class Map:
+	
+	scenes = {
+		'death': Death(),
+		'lawnbeforehouse': Lawn(),
+		'bar': Bar(),
+		'the_street': TheStreet(),
+		'escape_pod': EscapePod(),
+		'finished': Finished(),
+		}
+		
+	def __init__(self, start_scene):
+		self.start_scene = start_scene
+		
+	def next_scene(self, scene_name): 
+		val = Map.scenes.get(scene_name)
+		return val
+		
+	def opening_scene(self):
+		return self.next_scene(self.start_scene)
+		
+		
+a_map = Map('lawnbeforehouse')
+a_game = Engine(a_map)
+a_game.play()
+		
+			
+		
+
+
+
 #-*-coding: utf-8-*-
 # Exercise 39 (I & II)
 
