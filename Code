@@ -193,8 +193,84 @@ a_game = Engine(a_map)
 a_game.play()
 		
 			
-		
+#-*-coding: utf-8-*-
+# Exercise 42
 
+## Animal наследует object
+class Animal(object):
+	pass
+	
+## класс Dog наследует Animal
+class Dog(Animal):
+		# класс Dog комбинирует __init__ c параметрами self, name
+		def __init__(self, name):
+			# параметр name комбинирует атрибута класса
+			self.name = name
+			
+## создается класс Cat, который наследует Animal
+class Cat(Animal):
+	# класс Cat комбинирует __init__ с параметрами self, name
+	def __init__(self, name):
+		# параметр name комбинирует атрибут класса
+		self.name = name
+		
+## создается класс Person, наследующий ojbect
+
+class Person(object):
+	# класс Person комбинирует __init__ с параметрами self, name
+	def __init__(self, name):
+		# параметр name комбинирует атрибут класса
+		self.name = name
+	# Person - 	композиция животного некоторого вида
+	self.pet = None
+	
+## создается класс Employee, который наследует Person
+class Employee(Person):
+		# класс Emlpoyee комбинирует метод __init__ с параметрами self, name, salary
+		def __init__(self, name, salary):
+			# композиция супер-класса от Employee
+			super(Employee, self).__init__(name)
+			# композиция атрибута класса
+			# параметр salary комбинирует атрибут класса
+			self.salary = salary
+			
+# класс Fish наследует object
+class Fish(object):
+	pass
+	
+# класс Salmon наследует класс Fish
+class Salmno(Fish):
+	pass
+	
+# класс Halibut наследует класс Fish	
+class Halibut(Fish):
+	pass
+	
+## rover наследует Dog
+rover = Dog("Rover")
+
+sat = Cat("sat")
+
+## Мэри наследует Person
+mary = Person("Mary")
+
+# атрибут pet комбинирует экземпляр класса sat
+mary.pet = sat
+
+# создается frank как экземпляр класса Employee с параметрами "Frank", 120000
+frank = Employess("Frank", 120000)
+
+# из frank получается атрибут pet, а затем устанавливается равным rover
+frank.pet = rover
+
+# создается flipper как экземпляр класса Fish
+flipper = Fish()
+
+# создается crouse как экземпляр класса Salmon
+crouse = Salmon()
+
+# создается harry как экземпляр класса Halibut
+harry = Halibut()
 
 
 #-*-coding: utf-8-*-
