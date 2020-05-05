@@ -1,3 +1,21 @@
+# Exercise 47
+''' the main purpose of the ex is to create auto tests for it. 
+They can be found in the 'test' folder and executed over
+nosetests or nose2 '''
+
+class Room:
+
+	def __init__(self, name, description):
+		self.name = name
+		self.description = description
+		self.paths = {}
+		
+	def go(self, direction):
+		return self.paths.get(direction, None)
+		
+	def add_paths(self, paths):
+		self.paths.update(paths)
+
 #-*-coding: UTF-8-*-
 # Exercise 43
 
