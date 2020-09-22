@@ -1,2 +1,2 @@
-# Book-1
-Here is the bunch of completed exercises from the book #1;
+# Learn Python The Hard Way by Zed Shaw
+All the exercises from the book in the single file. Enjoy!
